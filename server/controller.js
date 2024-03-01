@@ -14,5 +14,10 @@ module.exports = {
         res.status(200).send(randomFortune);
     },
 
-    
+    getInspired: (req, res) => {
+        const inspire = ['Everything you have ever wanted is sitting on the other side of fear', "If you ain't first, you are last", 'Every strike you take gets you closer to the next home run'];
+        let randIndex = Math.floor(Math.random() * inspire.length);
+        let randomInspire = inspire[randIndex];
+        res.status(200).send(randomInspire);
+    }
 };

@@ -19,5 +19,11 @@ module.exports = {
         let randIndex = Math.floor(Math.random() * inspire.length);
         let randomInspire = inspire[randIndex];
         res.status(200).send(randomInspire);
-    }
+    },
+
+    getEmail: (req, res) => {
+        const email = req.body.email;
+        const newText = "Thanks for signing up! " + email;
+        res.status(200).send(newText);
+    },
 };

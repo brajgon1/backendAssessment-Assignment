@@ -23,7 +23,31 @@ module.exports = {
 
     getEmail: (req, res) => {
         const email = req.body.email;
-        const newText = "Thanks for signing up! " + email;
+        const newText = `Thanks for signing up ${email}!` 
         res.status(200).send(newText);
     },
+
+    getDropped: (req, res) => {
+        const dropEncourage = 'We will fail when we fail to try'
+        const dropInspire = 'Whatever you do, always give it 100, unless you are delivering blood'
+        const dropFunny = 'The planet is fine. The people are screwed'
+        
+        const dropOptions = {
+            option1: dropEncourage,
+            option2: dropInspire,
+            option3: dropFunny
+        };
+
+        const selection = req.query.selection;
+        const selectOptions = dropOptions[selection]
+
+        res.status(200).send(selectOptions)
+    },
+
+    getAppt: (req, res) => {
+        const dateTime = req.body.dateTime;
+        console.log('Received Date and Time:', dateTime);
+        res.status(200).send(dateTime);
+    }
+
 };
